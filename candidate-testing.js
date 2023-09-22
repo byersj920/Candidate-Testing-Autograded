@@ -3,33 +3,33 @@ const input = require('readline-sync');
 // TODO 2: modify your quiz app to ask 5 questions //
 
 // TODO 1.1a: Define candidateName // 
-let candidateName;
+let canidateName = '';
 // TODO 1.2a: Define question, correctAnswer, and candidateAnswer //
-let question;
+let question = "Who was the first American woman in space? ";
 let correctAnswer = 'Sally Ride';
-let candidateAnswer;
+let canidateAnswer ='';
 
 //TODO: Variables for Part 2
 let questions;
+let canidateAnswers;
 let correctAnswers;
-let candidateAnswers;
 
 
 function askForName() {
   // TODO 1.1b: Ask for candidate's name //
-  let canidateName = input.question('Welcome to the canidate quiz! Please enter your name: ');
+  canidateName = input.question('Welcome to the canidate quiz! Please enter your name: ');
 }
 
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
-question = input.question("Who was the first American woman in space?: ");
+canidateAnswer = input.question(`${question}`);
 }
 
-function gradeQuiz(candidateAnswers) {
+function gradeQuiz() {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
 
-if (questionOne.toLowerCase().trim() === 'sally ride'){
+if (canidateAnswer.toLowerCase().trim() === 'sally ride'){
   console.log('Correct!');
 } else {
   console.log(`Incorrect. The correct answer was "Sally Ride."`);
@@ -46,18 +46,18 @@ function runProgram() {
   // TODO 1.1c: Greet candidate using their name //
    console.log(`Hi, ${canidateName}! Nice to meet'cha. Let's get started with the quiz. There will be five questions in this quiz. Good luck!`);
   askQuestion();
-  gradeQuiz(this.candidateAnswers);
+  gradeQuiz();
 }
 
 // ----------- Don't write any code or change any code below this line ---------- //
 module.exports = {
-  candidateName: candidateName,
+  candidateName: canidateName,
   question: question,
   correctAnswer: correctAnswer,
-  candidateAnswer: candidateAnswer,
+  candidateAnswer: canidateAnswer,
   questions: questions,
   correctAnswers: correctAnswers,
-  candidateAnswers: candidateAnswers,
+  canidateAnswers: canidateAnswers,
   gradeQuiz: gradeQuiz,
   runProgram: runProgram
 };
