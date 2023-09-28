@@ -38,15 +38,37 @@ for (i = 0; i < questions.length; i++){
 }
 }
 
-function gradeQuiz() {
+function gradeQuiz(canidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
-for (i = 0; i < canidateAnswers.length; i++){
+
+  for (i = 0; i < canidateAnswers.length; i++){
   console.log(`For question ${i+1}, you answered '${canidateAnswers[i]}'. The correct answer was ${correctAnswers[i]}.`);
 }
 
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
+ //TODO 3.2 use this variable to calculate the candidates score.
+  let caseDeSensitive = function(value){
+    let newValue;
+    if (typeof value === 'string'){
+      newValue = value.toLowerCase();
+    } else {
+      newValue = value;
+    }
+    return newValue;
+  };
 
+canidateAnswers = canidateAnswers.map(caseDeSensitive);
+correctAnswers = correctAnswers.map(caseDeSensitive);
+let numberCorrect = 0;
+
+for (let i = 0; i < canidateAnswers.length; i++){
+  if(canidateAnswers[i] === correctAnswers[i]){
+    numberCorrect += 1;
+  }
+}
+console.log(numberCorrect);
+let grade = (numberCorrect/questions.length)*100
+console.log(grade);
 
   return grade;
 }
