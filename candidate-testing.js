@@ -37,7 +37,6 @@ for (i = 0; i < questions.length; i++){
   canidateAnswers.push(input.question(`${questions[i]}`));
 }
 }
-
 function gradeQuiz(canidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
@@ -66,9 +65,12 @@ for (let i = 0; i < canidateAnswers.length; i++){
     numberCorrect += 1;
   }
 }
-console.log(numberCorrect);
 let grade = (numberCorrect/questions.length)*100
-console.log(grade);
+if (grade >= 80){
+  console.log(`${grade/100*5} of your answers were correct, meaning you scored ${grade}%. You passed! Congrats!!! You should get like a trophy or something.`);
+} else{
+  console.log(`${grade/100*5} of your answers were correct, meaning you scored ${grade}%. You did not pass. Please study up and try agian later.`);
+}
 
   return grade;
 }
@@ -78,7 +80,7 @@ function runProgram() {
   // TODO 1.1c: Greet candidate using their name //
    console.log(`Hi, ${canidateName}! Nice to meet'cha. Let's get started with the quiz. There will be five questions. Good luck!`);
   askQuestion();
-  gradeQuiz();
+  gradeQuiz(this.canidateAnswers);
 }
 
 // ----------- Don't write any code or change any code below this line ---------- //
